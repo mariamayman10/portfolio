@@ -1,21 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "./logo";
 import { useWindowSize } from "../hooks/useWindowSize";
 import styles from "./navbar.module.css";
 
+const links = [
+  { name: "home", label: "Home" },
+  { name: "about", label: "About" },
+  { name: "skills", label: "Skills" },
+  { name: "projects", label: "Projects" },
+  { name: "resume", label: "Resume" },
+  { name: "contact", label: "Contact" },
+];
 function Navbar() {
   const [selectedLink, setSelectedLink] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
   const { width } = useWindowSize();
 
-  const links = [
-    { name: "home", label: "Home" },
-    { name: "about", label: "About" },
-    { name: "skills", label: "Skills" },
-    { name: "projects", label: "Projects" },
-    { name: "resume", label: "Resume" },
-    { name: "contact", label: "Contact" },
-  ];
 
   const handleSelecting = (name) => {
     setSelectedLink(name);
@@ -30,6 +30,35 @@ function Navbar() {
   };
 
   const isDesktop = width > 900;
+
+  useEffect(() => {
+    const sections = links.map((link) => document.getElementById(link.name));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setSelectedLink(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-120px 0px -60% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
 
   return (
     <nav className={isDesktop ? styles.navDesktop : styles.navMobile}>
