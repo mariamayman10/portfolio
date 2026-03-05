@@ -1,0 +1,100 @@
+.contact {
+  padding: 3.5rem;
+  margin-top: 25px;
+  background-color: #f2f4f7;
+  border-radius: 4rem;
+}
+
+.contactWrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #171717;
+}
+
+.subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  color: #555;
+  line-height: 1.6;
+}
+.content {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.info {
+  flex: 1 1 350px;
+}
+
+.info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.info p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.emailBox span {
+  display: block;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.emailBox a ,.emailBox p{
+  font-weight: 500;
+  color: #fd853a;
+  text-decoration: none;
+}
+.form {
+  flex: 1 1 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form input,
+.form textarea {
+  padding: 0.9rem 1.2rem;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #fd853a;
+  box-shadow: 0 0 0 3px rgba(253, 133, 58, 0.15);
+}
+
+.form button {
+  font-family: lufga;
+  padding: 0.9rem 2rem;
+  border-radius: 40px;
+  border: none;
+  background-color: #fd853a;
+  color: #171717;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(253, 133, 58, 0.3);
+}
